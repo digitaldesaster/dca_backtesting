@@ -18,7 +18,7 @@ pairs =['SOLUSDT','LUNAUSDT','AVAXUSDT','ADAUSDT','ATOMUSDT','ROSEUSDT','SANDUSD
 #This function downloads all 1m data into a local file. e.g. MATICUSDT.txt
 def downloadPriceData(symbol,startTime):
 
-    endTime = datetime.now().strftime("%s")+'000'
+    endTime = datetime.now().strftime("%S")+'000'
 
     #this is the lowest we can get.. changing that doesnt make sense
     interval='1m'
