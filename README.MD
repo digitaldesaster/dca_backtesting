@@ -88,20 +88,35 @@ You will find examples for the testing of single config / multi configs and mult
 The function startBacktest returns an json_array with the results.
 
 config_name = the name of the config like 'ta_standard'
+
 pair = the pair we tested like 'SOLUSDT'
+
 bot_total_volume = the total volume currently assumed by the bot (deal volume)
+
 bot_current_profit = the profit or loss of the current deal.. (should be deal_current_profit.. will fix this later..)
+
 bot_current_profit_percent = profit of current deal in percent (..)
+
 avaiable_capital = the capital that is not invested at the moment.
+
 total_capital = this is the bot_volume + avaiable_capital
+
 total_deals = the number of deals closed
+
 highest_so = the highest safety order that got filled
+
 avg_so = the average amount of safety orders that got filled
+
 backtest_start = the start date you submitted in the function startBacktest
+
 backtest_end = the end date you submitted in the function startBacktest
+
 max_amount_for_bot_usage = the max amount the bot can use from our config
+
 max_safety_order_price_deviation = the deviation of the bot like 60%
+
 profit = the total profit / loss of the bot
+
 profit_percent = the total profit / loss in percent
 
 ROADMAP
