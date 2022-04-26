@@ -40,6 +40,10 @@ This script fetches the price_data (1minute candles - ohlc) from binance and sto
 
 I normally use mongodb / mongoengine to store data but in this case storing the data in txt-files was a lot faster then using mongodb.
 
+I have fetched the data for 48 coins since 01.11.2021
+You can download the data folder here: https://www.dropbox.com/s/q9a1mz2ps99qy1c/data.zip?dl=0
+Just make sure that all the files are in the data folder of this script! 
+
 initialStartDate = date(2022,4,1).strftime("%s")+'000'
 this is the oldest date from which we want pricedata from. changing the initialStartDate after fetching data doesnt work, you definitely have to redownload everything by setting latest_data = 0 (see also below)
 
