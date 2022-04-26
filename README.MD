@@ -1,4 +1,4 @@
-You can find this readme also in a more readable format here:
+You can find this readme in a more readable format here:
 https://www.buymeacoffee.com/digitaldesaster/dca-backtesting-v-0-1-documentation
 
 This is a very early and experimental version of a DCA backtesting script.
