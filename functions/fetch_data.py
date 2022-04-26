@@ -9,7 +9,7 @@ folder = 'data/'
 #this is the date where we start downloading our prices..
 #if you already have data and want to change the initialStartDate then
 #make sure to reforce a complete download by using latest_data = 0 in updatePriceData function
-initialStartDate = date(2021,11,1).strftime("%s")+'000'
+initialStartDate = date(2021,11,1).strftime("%S")+'000'
 
 #put in all pairs you like to download data for.. keep in mind, that it will take some time to download all data if you start a few months back!
 pairs =['SOLUSDT','LUNAUSDT','AVAXUSDT','ADAUSDT','ATOMUSDT','ROSEUSDT','SANDUSDT','APEUSDT','DOTUSDT','LTCUSDT','TRXUSDT','OCEANUSDT','SHIBUSDT','DOGEUSDT','CRVUSDT','NEARUSDT','RUNEUSDT','ZILUSDT','MATICUSDT','FTTUSDT','XRPUSDT','UNIUSDT','LINKUSDT','VETUSDT','AAVEUSDT','CHZUSDT','FTMUSDT','HNTUSDT','AXSUSDT','MANAUSDT','SYSUSDT','BCHUSDT','AMPUSDT','ZECUSDT','FILUSDT','ONEUSDT','ETCUSDT','BATUSDT','EOSUSDT','YFIUSDT','COMPUSDT','MKRUSDT','SKLUSDT','OGNUSDT','ALGOUSDT','ZENUSDT','LPTUSDT','XLMUSDT']
