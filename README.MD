@@ -18,15 +18,19 @@ bot_config.py
 This script reads the bot_config.csv and provides the data in a form we can work with.
 
 getAllConfigs()
+
 provides an array of all configs.. each element has the class bot_config as defined in bot_config.py.
 
 getSingleConfig('ta_standard')
+
 provides one config. you can loop over getAllConfigs() and print 'config_name' to get the valid names.
 
 getMax(config)
+
 calculates max_safety_order_price_deviation and max_amount_for_bot_usage for a given config.
 
 config.to_json()
+
 provides the config in a readable json format - if you can read json ;-)
 
 for you own settings you could either add them to the bot_config.csv or use the class my_own_config
