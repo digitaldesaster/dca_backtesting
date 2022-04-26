@@ -1,3 +1,6 @@
+You can find this readme also here:
+https://docs.google.com/document/d/e/2PACX-1vQSOAtTbFqsRxJyEVPNo08m6W6APiU2BXQT7ZCcHaXoTXec7Uxu6Acdbwoxtt42z1sR4URTvdYEefp7/pub
+
 This is a very early and experimental version of a DCA backtesting script.
 You should use this software for testing purposes only!  (LOL)
 
