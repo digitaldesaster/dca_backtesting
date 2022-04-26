@@ -1,0 +1,94 @@
+,,,,,,,,,,,,
+To include your config in the community list please fill the anonymous form here: https://forms.gle/qxuvvsprDa3wMJB7A ,,,,,,,,,,,,
+TA Community Discord: https://discord.com/invite/tradealts ,,,,,,,,,,,,
+🤖 List created by Sellium#7929 // Ribsy has Admin rights to it,,,,,,,,,,,,
+INDEX,Creator,What's the name of the Bot Config?,(TP) Take Profit,(BO) Base Order Size,(SO) Safety Order Size,(OS) Safety Order Volume Scale,(SS) Safety Order Step Scale,(SOS) Price Deviation to Open Safety Orders,(MSTC) Max Safety Trades Count,Deal Start Condition,Max SO Price Deviation,Max Cost per Bot / Deal
+1,Trade Alts,TA Standard,1.50%,$10,$20,1.05,1.00,2.00%,30,ASAP,60.00%,"$1,339"
+2,Trade Alts,TA Safer,1.50%,$10,$10,1.05,1.00,2.40%,25,ASAP,60.00%,$488
+3,Trade Alts,TA Riskier,1.00%,$10,$15,1.05,1.00,2.00%,30,ASAP,60.00%,"$1,007"
+4,Trade Alts,TA Riskier 2,1.00%,$10,$15,1.05,1.00,2.40%,25,ASAP,60.00%,$727
+5,Trade Alts,TA Very Aggressive,1.00%,$10,$20,1.05,1.00,2.50%,20,ASAP,50.00%,$672
+6,Trade Alts,TA Standard v2,1.25%,$10,$10,1.09,1.00,2.00%,30,ASAP,60.00%,"$1,374"
+7,Trade Alts,TA Strong Uptrend,3.00%,$10,$10,1.40,1.23,2.00%,10,ASAP,60.22%,$709
+8,Trade Alts,TA Deep Retracement,3.00%,$10,$10,2.00,1.40,2.00%,8,ASAP,68.78%,"$2,560"
+9,Ribsy,Mercury,3.00%,$10,$10,1.50,1.30,2.00%,8,ASAP,47.71%,$504
+10,Ribsy,Mars,3.00%,$10,$10,1.40,1.30,1.80%,8,ASAP,42.94%,$355
+11,Ribsy,Oni,3.00%,$10,$10,1.40,1.45,1.00%,8,ASAP,41.20%,$355
+12,Urma,Urma V6,3.00%,$10,$10,1.40,1.50,1.87%,7,ASAP,60.16%,$249
+13,Mantis,Big BankRoll,1.00%,$10,$20,1.06,1.00,1.45%,42,ASAP,60.90%,"$3,530"
+14,Mizukage,Mizukage v3.1,3.00%,$100,$10,1.00,1.01,0.35%,100,ASAP,59.66%,"$1,103"
+15,Zeke,Kiri v4,3.00%,$50,$10,1.02,0.99,1.50%,51,ASAP,60.15%,$925
+16,Zeke,Kiri v2,3.00%,$100,$10,1.01,0.98,1.25%,100,ASAP,54.21%,"$1,808"
+17,RN,RN v1,3.00%,$10,$10,1.15,1.11,3.00%,11,ASAP,58.68%,$254
+18,RN,RN v4,3.00%,$10,$10,1.30,1.30,2.50%,8,ASAP,59.64%,$249
+19,Ribsy,Banshee,3.00%,$10,$10,1.40,1.35,1.50%,8,ASAP,42.99%,$355
+20,Thrill ,XL v1,3.00%,$100,$10,1.16,1.07,1.15%,21,ASAP,51.59%,"$1,449"
+21,Thrill ,XL v2,3.00%,$100,$10,1.05,1.00,1.15%,45,ASAP,51.75%,"$1,698"
+22,Thrill + Sellium,XL v3,3.00%,$100,$10,1.17,1.06,1.36%,20,ASAP,50.02%,"$1,401"
+23,Sellium,Hammerhead,3.00%,$10,$10,1.41,1.21,2.05%,9,RSI-7 3m <85,44.51%,$524
+24,Sellium,OutRider,3.00%,$10,$10,1.31,1.28,1.81%,8,RSI-7 3m <85,40.11%,$258
+25,Sellium,Ghost,3.00%,$10,$10,1.30,1.30,2.10%,8,RSI-7 3m <85,50.10%,$250
+26,Sellium,Scimitar,3.00%,$10,$10,1.33,1.27,1.44%,9,RSI-7 3m <85,40.50%,$375
+27,Sellium,Profundity,2.00%,$10,$10,1.23,1.11,1.75%,15,RSI-7 3m <85,60.20%,$938
+28,Sellium,Profundity Value,3.00%,$10,$10,1.15,1.09,1.75%,15,RSI-7 3m <85,51.38%,$487
+29,Sellium,Neimoidian,1.50%,$10,$10,1.25,1.13,1.24%,15,RSI-7 3m <85,50.11%,"$1,107"
+30,Sellium,Neimoidian Value,3.00%,$10,$10,1.15,1.13,1.24%,15,RSI-7 3m < 85,50.11%,$487
+31,Sellium,Neimoidian Value Opt2,3.00%,$10,$10,1.13,1.11,1.28%,16,RSI-7 3m < 85,50.16%,$478
+32,Sellium,The 69er,2.00%,$69,$69,0.85,1.05,1.89%,12,ASAP,30.08%,$465
+33,Sellium,The 69er SS,1.50%,$69,$69,0.85,1.04,1.00%,12,ASAP,15.02%,$465
+34,ZachTech,BitMan,2.00%,$11,$11,1.33,1.11,3.33%,10,ASAP,55.68%,$555
+35,C2-Dre,Fuze,3.00%,$12,$12,1.29,1.22,1.50%,10,ASAP,43.00%,$499
+36,willieblunt,halfnhalf,1.50%,$11,$11,1.05,0.97,2.20%,38,ASAP,50.28%,"$1,195"
+37,BlueCoockie,ScarTEC,1.10%,$10,$10,1.05,0.96,2.00%,40,ASAP,40.23%,"$1,218"
+38,Thrill,L v1 - (as in large),3.00%,$50,$50,1.10,1.33,1.00%,10,ASAP,50.00%,$850
+39,BlueCoockie,ScarTA,1.10%,$10,$10,1.05,0.97,2.00%,31,ASAP,40.73%,$719
+40,Dynamix,RedBull(BullMarketOnly),2.00%,$12.5,$12.5,0.99,1.10,0.47%,21,ASAP,30.08%,$250
+41,MegaAramisoff,Nutcracker-2,1.70%,$10,$20,1.53,1.20,1.60%,10,RSI-7 3m,41.53%,"$2,625"
+42,Ali,poise,1.50%,$10,$10,1.30,1.30,1.50%,9,ASAP,48.00%,$330
+43,Matteo,Cazu,2.00%,$100,$10,1.52,1.39,0.90%,10,ASAP,59.82%,"$1,347"
+44,Sellium,Profundity Value Opt3,3.00%,$10,$10,1.15,1.10,1.58%,16,RSI-7 3m < 85,56.80%,$567
+45,Sellium,Acclamator,1.50%,$10,$10,1.09,1.07,1.30%,17,RSI-7 3m < 85,40.09%,$380
+46,Ribsy,Chimera,3.00%,$10,$10,1.20,1.11,1.60%,15,ASAP,55.04%,$732
+47,Ribsy,Kraken,3.00%,$10,$10,1.55,1.45,1.00%,8,ASAP,41.20%,$599
+48,Ribsy,Aqrabuamelu,3.00%,$10,$10,1.40,1.26,1.00%,12,ASAP,57.73%,"$1,403"
+49,Jupiter-Orange,Jora,3.00%,$75,$10,1.19,1.12,1.20%,15,ASAP,44.73%,$740
+50,Burak00,BRK Ultra V2,3.00%,$10,$15,1.01,1.00,1.50%,30,ASAP,45.00%,$536
+51,Ryzen,Catalyst,2.00%,$10,$10,1.12,1.00,5.00%,11,"TV (1m, buy); TV (5m, buy); RSI (3m, 70); RSI (4h, 68)",55.00%,$220
+52,Shwao,Shwao - ConsoliKing,4.00%,$10,$35,1.05,1.00,1.55%,36,ASAP,55.80%,"$3,364"
+53,Bobwood,0.6 SOS Sniping/DCA,1.00%,$10,$10,1.40,1.30,0.60%,13,ASAP,58.60%,"$1,969"
+54,Bobwood,FrontLoaded 0.6 SOS Sniping/DCA,1.00%,$50,$10,1.40,1.30,0.60%,13,ASAP,58.60%,"$2,006"
+55,Bobwood,1.0 SOS Sniping/DCA,1.00%,$10,$10,1.30,1.23,1.00%,13,ASAP,59.80%,$986
+56,Bobwood,FrontLoad 1.0 SOS Sniping/DCA,1.00%,$50,$10,1.30,1.23,1.00%,13,ASAP,59.80%,"$1,026"
+57,BlueCookie,ScarTA+,2.00%,$10,$10,1.08,0.97,2.00%,31,ASAP,40.75%,"$1,245"
+58,itzwolf,The Wolf Bot,2.00%,$10,$10,1.10,1.00,1.50%,30,ASAP,45.00%,"$1,656"
+59,Nooun,Verrb,2.00%,$10,$10,1.40,1.20,1.40%,12,ASAP,55.41%,$553
+60,Anked,Scarlet,3.00%,$10,$10,1.03,0.97,1.50%,53,ASAP,40.04%,"$1,275"
+61,TheAlpha,Alpha,3.00%,$10,$10,1.40,1.20,2.00%,9,ASAP,41.59%,$502
+62,TheAlpha,Alpha+,3.00%,$10,$10,1.50,1.20,2.00%,9,ASAP,41.59%,$759.41
+63,TheAlpha,Alpha Lite,3.00%,$10,$10,1.40,1.22,3.00%,7,ASAP,41.21%,$248.97
+64,TheAlpha,Alpha Deep Drop 1.01 SS,3.00%,$10,$10,1.17,1.01,2.00%,20,ASAP,44.03%,"$1,311"
+65,TheAlpha,Alpha Deep Drop MSTC 25 (Passive),3.00%,$10,$10,1.17,1.00,2.00%,25,ASAP,50.00%,"$2,932"
+66,Heopas,Heopas,1.25%,$10,$20,1.04,1.00,1.45%,30,ASAP,43.50%,"$1,133"
+67,Mearin91,Mearin91,2.00%,$13,$17,1.06,1.01,1.56%,33,ASAP,60.63%,"$1,669"
+68,Ribsy,Mars (passive),3.00%,$10,$10,1.40,1.30,1.80%,9,ASAP,57.62%,$503
+69,Ribsy,Banshee (passive),3.00%,$10,$10,1.40,1.35,1.50%,9,ASAP,59.54%,$503
+70,Ribsy,Set 5 - Test 1,3.00%,$10,$10,1.15,1.07,1.40%,16,ASAP,39.04%,$485
+71,Ribsy,Set 5 - Test 1 (passive),3.00%,$10,$10,1.15,1.07,1.40%,20,ASAP,57.39%,"$1,034"
+72,Ribsy,Set 5 - Test 2,3.00%,$10,$10,1.01,0.99,1.40%,35,ASAP,41.52%,$426
+73,Ribsy,Set 5 - Test 2 (passive),3.00%,$10,$10,1.01,0.99,1.40%,55,ASAP,59.45%,$738
+74,Ribsy,Set 5 - Test 3,3.00%,$10,$15,1.01,1.00,1.00%,40,ASAP,40.00%,$743
+75,Ribsy,Set 5 - Test 3 (passive),3.00%,$10,$15,1.01,1.00,1.00%,50,ASAP,50.00%,$976
+76,Ribsy,Set 5 - Test 4,3.00%,$40,$15,1.19,1.12,1.20%,15,ASAP,44.74%,"$1,033"
+77,Ribsy,Set 5 - Test 4 (passive),3.00%,$40,$15,1.19,1.12,1.20%,17,ASAP,58.66%,"$1,480"
+78,Ribsy,Set 5 - Test 5,3.00%,$10,$10,1.70,1.26,1.50%,9,ASAP,40.41%,"$1,689"
+79,Ribsy,Set 5 - Test 5 (passive),3.00%,$10,$10,1.70,1.26,1.50%,11,ASAP,67.55%,"$4,891"
+80,Ribsy,Set 5 - Test 6,3.00%,$10,$10,1.20,1.03,1.50%,20,ASAP,40.31%,"$1,876"
+81,Ribsy,Set 5 - Test 7,3.00%,$30,$10,1.70,1.27,1.40%,9,ASAP,39.38%,"$1,709"
+82,Ribsy,Set 5 - Test 8,3.00%,$10,$10,1.25,1.05,1.80%,18,ASAP,50.64%,"$2,190"
+83,Ribsy,Set 5 - Test 9,3.00%,$30,$10,1.60,1.05,1.65%,14,ASAP,32.34%,"$12,022"
+84,Ribsy,Set 5 - Test 10,3.00%,$10,$10,1.20,1.01,1.60%,25,ASAP,45.19%,"$4,729"
+85,Bluecookie,GreenTec (beta),2.00%,$10,$10,1.01,0.97,2.00%,76,ASAP,60.00%,"$1,143"
+86,Bluecookie,BlueTec (beta),2.00%,$10,$10,1.01,0.97,1.80%,79,ASAP,55.00%,"$1,207"
+87,Shwao,ConsoliQueen,2.50%,$10,$22.50,1.09,1.02,2.30%,18,ASAP,49.25%,$939
+87,willieblunt,heavyhitter,2.00%,$10,$10,1.83,1.33,1.50%,8,ASAP,39.95%,"$1,513"
+4/9/2022 9:52:52,Ryzen,Hybrid,1,10,10,1.18,1,10,6,ASAP,60,105
