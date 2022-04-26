@@ -6,18 +6,28 @@ The idea behind it is that anyone with basic Python knowledge should be able to 
 Many thanks first of all to TradeAlt and the fantastic community on his discord.
 TA Community Discord: https://discord.com/invite/tradealts 												
 
-Many thanks also to Sellium, Ribsy and all the other "config creators"
+Many thanks also to Sellium, Ribsy and all the other "config creators".
 Sellium has shared a list of the most popular configs here:
+
 https://docs.google.com/spreadsheets/d/1cQ68_Sl70SRFRMeGu0zgBhTCuQvSf6ENi_obLhr7kpw
+
 You should download the latest version as csv file to the configs folder and name it bot_configs.csv
 
 bot_config.py
+
 This script reads the bot_config.csv and provides the data in a form we can work with.
 
-getAllConfigs() // provides an array of all configs.. each element has the class bot_config as defined in bot_config.py.
-getSingleConfig('ta_standard') // provides one config. you can loop over getAllConfigs() and print 'config_name' to get the valid names.
-getMax(config) // calculates max_safety_order_price_deviation and max_amount_for_bot_usage for a given config.
-config.to_json() // provides the config in a readable json format - if you can read json ;-)
+getAllConfigs()
+provides an array of all configs.. each element has the class bot_config as defined in bot_config.py.
+
+getSingleConfig('ta_standard')
+provides one config. you can loop over getAllConfigs() and print 'config_name' to get the valid names.
+
+getMax(config)
+calculates max_safety_order_price_deviation and max_amount_for_bot_usage for a given config.
+
+config.to_json()
+provides the config in a readable json format - if you can read json ;-)
 
 for you own settings you could either add them to the bot_config.csv or use the class my_own_config
 the my_own_config is added to the array provided by getAllConfigs()
