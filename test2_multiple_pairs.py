@@ -47,4 +47,4 @@ for pair in pairs:
     print (pair, result['profit'],result['max_amount_for_bot_usage'],result['profit_percent'])
 
 #we can save the result to a csv file for further analysis (folder = results)
-saveResult(results,'euphoria.csv')
+saveResult(results,'multiple_pairs.csv')

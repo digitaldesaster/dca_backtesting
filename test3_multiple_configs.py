@@ -32,9 +32,13 @@ config_list = getAllConfigs()
 #set whitelist=[] to test against all configs
 whitelist = ['ta_standard','profundity','verrb','banshee','euphoria','alpha','nutcracker-2','scarta+','set_5_-_test_6','bitman']
 #whitelist=[]
+results=[]
 for config in config_list:
     if config.config_name in whitelist or whitelist==[]:
         result = startBacktest(config,pair,startDate,endDate)
         #lets say we only want to find the configs with a profit of at least 5 percent
-        if result['profit_percent'] > 5:
-            print (result['config_name'],result['profit'],result['max_safety_order_price_deviation'],result['max_amount_for_bot_usage'],result['profit_percent'])
+        #if result['profit_percent'] > 5:
+            #print (result['config_name'],result['profit'],result['max_safety_order_price_deviation'],result['max_amount_for_bot_usage'],result['profit_percent'])
+        results.append(result)
+#we can save the result to a csv file for further analysis (folder = results)
+saveResult(results,'multiple_configs.csv')
