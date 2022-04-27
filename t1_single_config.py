@@ -34,7 +34,7 @@ config = getSingleConfig('ta_standard')
 #config.max_safety_order_price_deviation,config.max_amount_for_bot_usage = getMax(config)
 
 #the date from which the backtest should start
-startDate = date(2021,4,1).strftime("%Y-%m-%d %H:%M:%S")
+startDate = date(2022,4,1).strftime("%Y-%m-%d %H:%M:%S")
 #this date can be different from the initialStartDate we used to fetch our data.
 #so we can download all data from the last 6 months but we start our backtest 3 months ago.. or 3 days.. whatever
 #we will format this date as a string and it should look like this 2021-11-01 00:00:00
