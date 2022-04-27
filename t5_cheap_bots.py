@@ -10,7 +10,7 @@ from fetch_data import *
 from backtest import *
 
 #lets define the pair we want to backtest
-pair = 'ZILUSDT'
+pair = 'SOLUSDT'
 
 #update the price data for this pair.. you should comment it out to avoid fetching data every time you are testing --> put a # in front of the line.
 updatePriceData(pair)
