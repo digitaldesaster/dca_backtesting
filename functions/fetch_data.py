@@ -13,8 +13,7 @@ folder = 'data/'
 initialStartDate = str(int(time.mktime(date(2022,4,1).timetuple())))+'000'
 
 #put in all pairs you like to download data for.. keep in mind, that it will take some time to download all data if you start a few months back!
-pairs =['SOLUSDT','LUNAUSDT','AVAXUSDT','ADAUSDT','ATOMUSDT','ROSEUSDT','SANDUSDT','APEUSDT','DOTUSDT','LTCUSDT','TRXUSDT','OCEANUSDT','SHIBUSDT','DOGEUSDT','CRVUSDT','NEARUSDT','RUNEUSDT','ZILUSDT','MATICUSDT','FTTUSDT','XRPUSDT','UNIUSDT','LINKUSDT','VETUSDT','AAVEUSDT','CHZUSDT','FTMUSDT','HNTUSDT','AXSUSDT','MANAUSDT','SYSUSDT','BCHUSDT','AMPUSDT','ZECUSDT','FILUSDT','ONEUSDT','ETCUSDT','BATUSDT','EOSUSDT','YFIUSDT','COMPUSDT','MKRUSDT','SKLUSDT','OGNUSDT','ALGOUSDT','ZENUSDT','LPTUSDT','XLMUSDT']
-
+pairs = 'SOLUSDT','LUNAUSDT','AVAXUSDT','ADAUSDT'
 
 #This function downloads all 1m data into a local file. e.g. MATICUSDT.txt
 def downloadPriceData(symbol,startTime):
