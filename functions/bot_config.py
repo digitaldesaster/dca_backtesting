@@ -79,6 +79,14 @@ def readConfigs(file_name):
 
     return config_list
 
+def getConfigsByMaxBotUsage(min,max):
+    config_list=[]
+    for config in getAllConfigs():
+        if config.max_amount_for_bot_usage >= min and config.max_amount_for_bot_usage <=max:
+            config_list.append(config)
+    return config_list
+
+
 def getAllConfigs():
     return (readConfigs('configs/bot_configs.csv'))
 

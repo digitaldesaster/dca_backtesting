@@ -38,9 +38,12 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
     highest_so = 0
     total_so = 0
+    max_deal_time = 0
 
     backtest_start = ''
     backtest_end = ''
+
+    deal_times = []
 
     reset_data = True
 
@@ -85,6 +88,8 @@ def startBacktest(config,pair,startDate='',endDate=''):
                 safety_order_deviation = 0
                 current_safety_order=0
                 reset_data=False
+                deal_start=price_date
+                deal_end=''
 
 
             if bot_total_volume==0:
@@ -142,6 +147,17 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
                     avaiable_capital = avaiable_capital + sell_amount
 
+                    #calculating the deal_times
+                    deal_end = price_date
+                    d_start = datetime.strptime(deal_start,"%Y-%m-%d %H:%M:%S")
+                    d_end = datetime.strptime(deal_end,"%Y-%m-%d %H:%M:%S")
+                    duration = round((d_end - d_start).total_seconds()/3600,2)
+
+                    if duration > max_deal_time:
+                        max_deal_time=duration
+
+                    deal_times.append(duration)
+
                     reset_data = True
 
 
@@ -158,9 +174,19 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
     backtest_end=price_date
 
+    #calculating the average deal_time
+    try:
+        avg_deal_time=0
+        for x in deal_times:
+            avg_deal_time = avg_deal_time + x
+        avg_deal_time = round(avg_deal_time / len(deal_times),2)
+    except:
+        avg_deal_time=0
+        max_deal_time=0
+        pass
 
     total_capital = round(avaiable_capital + bot_capital,2)
     profit = round(total_capital - start_capital,2)
     profit_percent = round(100 / start_capital * profit,2)
 
-    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end}
+    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end,'max_deal_time':max_deal_time,'avg_deal_time':avg_deal_time}
