@@ -28,7 +28,7 @@ whitelist = ['ta_standard','profundity','verrb','banshee','euphoria','alpha','nu
 #whitelist=[]
 
 #we are overwriting pairs here.. pairs is defined in fetch_data.. but in this example we want only two pairs..
-pairs=['SOLUSDT','ZILUSDT']
+pairs=['SOLUSDT','LUNAUSDT']
 for pair in pairs:
     updatePriceData(pair)
 
