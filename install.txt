@@ -1,0 +1,17 @@
+
+Installation into a virtual environment on Ubuntu (python3.9 has to be installed)
+cd /home
+sudo python3.9 -m venv env
+source env/bin/activate
+git clone https://github.com/digitaldesaster/dca_backtesting
+pip3 install requests
+cd dca_backtesting/
+
+python3 test1_single_config.py
+
+the output should be:
+download all data
+Downloading Price Data: SOLUSDT
+Downloading Price Data: SOLUSDT
+
+{'config_name': 'ta_standard', 'pair': 'SOLUSDT', 'total_capital': 1289.04, 'profit': -49.96, 'profit_percent': -3.73, 'bot_total_volume': 526.81, 'bot_current_profit': -57.24, 'bot_current_profit_percent': -10.87, 'avaiable_capital': 819.47, 'max_amount_for_bot_usage': 1339, 'max_safety_order_price_deviation': 60.0, 'total_deals': 21, 'highest_so': 5, 'avg_so': 0.76, 'backtest_start': '2022-04-01 00:00:00', 'backtest_end': '2022-04-27 07:28:00'}
