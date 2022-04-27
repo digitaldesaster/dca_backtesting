@@ -13,7 +13,7 @@ from backtest import *
 pair = 'ZILUSDT'
 
 #update the price data for this pair.. you should comment it out to avoid fetching data every time you are testing --> put a # in front of the line.
-#updatePriceData(pair)
+updatePriceData(pair)
 
 #the date from which the backtest should start
 startDate = date(2022,4,1).strftime("%Y-%m-%d %H:%M:%S")
