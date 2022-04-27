@@ -9,12 +9,6 @@ from bot_config import *
 from fetch_data import *
 from backtest import *
 
-#lets define the pair we want to backtest
-pair = 'SOLUSDT'
-
-#update the price data for this pair.. you should comment it out to avoid fetching data every time you are testing --> put a # in front of the line.
-updatePriceData(pair)
-
 #the date from which the backtest should start
 startDate = date(2022,4,1).strftime("%Y-%m-%d %H:%M:%S")
 #this date can be different from the initialStartDate we used to fetch our data.
@@ -35,6 +29,9 @@ whitelist = ['ta_standard','profundity','verrb','banshee','euphoria','alpha','nu
 
 #we are overwriting pairs here.. pairs is defined in fetch_data.. but in this example we want only two pairs..
 pairs=['SOLUSDT','ZILUSDT']
+for pair in pairs:
+    updatePriceData(pair)
+
 results=[]
 for config in config_list:
     if config.config_name in whitelist or whitelist==[]:
