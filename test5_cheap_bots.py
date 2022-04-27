@@ -10,7 +10,7 @@ from fetch_data import *
 from backtest import *
 
 #lets define the pair we want to backtest
-pair = 'SOLUSDT'
+pair = 'ZILUSDT'
 
 #update the price data for this pair.. you should comment it out to avoid fetching data every time you are testing --> put a # in front of the line.
 #updatePriceData(pair)
@@ -25,16 +25,18 @@ startDate = date(2022,4,1).strftime("%Y-%m-%d %H:%M:%S")
 #the date at which the backtest should end. by default the test runs as long as data is avaiable..
 endDate = date(2022,4,30).strftime("%Y-%m-%d %H:%M:%S")
 
-#we can also test one pair against all configs.
-config_list = getAllConfigs()
+#we can use getConfigsByMaxBotUsage to test all bots that have a max_amount_for_bot_usage between min and max
+#this returns all bots that are less then or equal to 350$
+config_list = getConfigsByMaxBotUsage(0,350)
 
-#we can whitelist configs.. so we load all, but test only against the ones that are whitelisted..
-#set whitelist=[] to test against all configs
-whitelist = ['ta_standard','profundity','verrb','banshee','euphoria','alpha','nutcracker-2','scarta+','set_5_-_test_6','bitman']
-#whitelist=[]
+whitelist=[]
+results=[]
 for config in config_list:
     if config.config_name in whitelist or whitelist==[]:
         result = startBacktest(config,pair,startDate,endDate)
         #lets say we only want to find the configs with a profit of at least 5 percent
-        if result['profit_percent'] > 5:
-            print (result['config_name'],result['profit'],result['max_safety_order_price_deviation'],result['max_amount_for_bot_usage'],result['profit_percent'])
+        #if result['profit_percent'] > 5:
+            #print (result['config_name'],result['profit'],result['max_safety_order_price_deviation'],result['max_amount_for_bot_usage'],result['profit_percent'])
+        results.append(result)
+#we can save the result to a csv file for further analysis (folder = results)
+saveResult(results,'cheap_configs.csv')
