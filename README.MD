@@ -126,6 +126,10 @@ profit = the total profit / loss of the bot
 
 profit_percent = the total profit / loss in percent
 
+max_dealtime = the deal that took the longest to close
+
+avg_dealtime = average time of all deals
+
 ROADMAP
 don't expect an update on the scripts every day.. But I am happy if someone is sharing some improvements or a bugfix in case you find anything.
 
