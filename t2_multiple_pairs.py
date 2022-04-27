@@ -10,7 +10,7 @@ from fetch_data import *
 from backtest import *
 
 #this updates all prices for all pairs as defined in the fetch_data.py
-#updateAllData()
+updateAllData()
 
 #the bot_config we like to backtest
 config = getSingleConfig('euphoria')
