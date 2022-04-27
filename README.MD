@@ -17,7 +17,7 @@ https://docs.google.com/spreadsheets/d/1cQ68_Sl70SRFRMeGu0zgBhTCuQvSf6ENi_obLhr7
 You should download the latest version as csv file to the configs folder and name it bot_configs.csv
 
 Please check the installation.txt for a guide on how to intall the software on Ubuntu. (less then a minute)
-In general (Mac, Windows,Linux) install Python3 and the requests module. Download the zip folder and start the testx_scripts from within the main folder. It will not work if you are calling the scripts from anywhere else or you have to change the path / folder logic.
+In general (Mac, Windows,Linux) install Python3 and the requests module. Download the zip folder and start the test scripts from within the main folder. It will not work if you are calling the scripts from anywhere else or you have to change the path / folder logic.
 
 bot_config.py
 
