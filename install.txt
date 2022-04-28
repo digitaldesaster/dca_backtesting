@@ -7,7 +7,7 @@ git clone https://github.com/digitaldesaster/dca_backtesting
 pip3 install requests
 cd dca_backtesting/
 
-python3 test1_single_config.py
+python3 t1_single_config.py
 
 the output should be:
 download all data
