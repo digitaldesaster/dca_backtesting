@@ -14,4 +14,4 @@ download all data
 Downloading Price Data: SOLUSDT
 Downloading Price Data: SOLUSDT
 
-{'config_name': 'ta_standard', 'pair': 'SOLUSDT', 'total_capital': 1289.04, 'profit': -49.96, 'profit_percent': -3.73, 'bot_total_volume': 526.81, 'bot_current_profit': -57.24, 'bot_current_profit_percent': -10.87, 'avaiable_capital': 819.47, 'max_amount_for_bot_usage': 1339, 'max_safety_order_price_deviation': 60.0, 'total_deals': 21, 'highest_so': 5, 'avg_so': 0.76, 'backtest_start': '2022-04-01 00:00:00', 'backtest_end': '2022-04-27 07:28:00'}
+you will find a csv-file with the results in the folder... results ;-)
