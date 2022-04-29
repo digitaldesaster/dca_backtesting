@@ -11,7 +11,7 @@ def readPriceData(pair):
     return content
 
 def saveResult(results,file_name):
-    data_file = open('results/' + file_name, 'w')
+    data_file = open('results/' + file_name, 'w', newline="")
     csv_writer = csv.writer(data_file)
 
     count = 0
