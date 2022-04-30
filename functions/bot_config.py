@@ -14,7 +14,7 @@ class bot_config:
     def to_json(self):
         return json.dumps(self.__dict__)
 
-class my_own_config:
+class euphoria:
     def __init__(self):
         self.config_name = 'euphoria'
         self.take_profit = 1.25
@@ -24,6 +24,19 @@ class my_own_config:
         self.deviation_to_open_safety_order = 1.5
         self.safety_order_volume_scale = 1.75
         self.safety_order_step_scale = 1.36
+    def to_json(self):
+        return json.dumps(self.__dict__)
+
+class buy_and_hold:
+    def __init__(self):
+        self.config_name = 'buy_and_hold'
+        self.take_profit = 500
+        self.base_order=1000
+        self.safety_order=0
+        self.max_safety_orders = 0
+        self.deviation_to_open_safety_order = 1
+        self.safety_order_volume_scale = 1
+        self.safety_order_step_scale = 1
     def to_json(self):
         return json.dumps(self.__dict__)
 
@@ -47,6 +60,12 @@ def getMax(config):
 
 def readConfigs(file_name):
     config_list = []
+
+    #uncomment if you have a own config to add... you could also add your config to the csv file ;-)
+    config = euphoria()
+    config.max_safety_order_price_deviation,config.max_amount_for_bot_usage = getMax(config)
+    config_list.append(config)
+
     with open(file_name, newline='') as csvfile:
         data = csv.reader(csvfile, delimiter=',', quotechar='|')
         header_found=False
@@ -72,20 +91,42 @@ def readConfigs(file_name):
                 #config_list[config.config_name] = json_config
                 config_list.append(config)
 
-    #uncomment if you have a own config to add... you could also add your config to the csv file ;-)
-    config = my_own_config()
+
+    config = buy_and_hold()
     config.max_safety_order_price_deviation,config.max_amount_for_bot_usage = getMax(config)
     config_list.append(config)
 
+
     return config_list
 
-def getConfigsByMaxBotUsage(min,max):
+def getConfigsByMaxBotUsage(min_usage,max_usage,min_deviation=0,max_deviation=0):
     config_list=[]
     for config in getAllConfigs():
-        if config.max_amount_for_bot_usage >= min and config.max_amount_for_bot_usage <=max:
+        add_config = False
+        if config.max_amount_for_bot_usage >= min_usage and config.max_amount_for_bot_usage <=max_usage:
+            add_config=True
+        if min_deviation !=0 and add_config:
+            if config.max_safety_order_price_deviation >= min_deviation:
+                add_config=True
+            else:
+                add_config=False
+        if max_deviation !=0 and add_config:
+            if config.max_safety_order_price_deviation <= max_deviation:
+                add_config=True
+            else:
+                add_config=False
+
+        if add_config:
             config_list.append(config)
+
+
     return config_list
 
+def getConfigsbyBudget(budget=5000,bot_count=10,min_deviation=40):
+    max_amount_for_bot_usage = budget / bot_count
+    min_usage = max_amount_for_bot_usage - (max_amount_for_bot_usage / 100 * 10)
+    max_usage = max_amount_for_bot_usage + (max_amount_for_bot_usage / 100 * 10)
+    return getConfigsByMaxBotUsage(min_usage,max_amount_for_bot_usage,min_deviation)
 
 def getAllConfigs():
     return (readConfigs('configs/bot_configs.csv'))
