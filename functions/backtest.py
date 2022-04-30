@@ -172,7 +172,7 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
     bot_current_profit_percent = round((100/bot_total_volume*bot_capital) - 100,2)
 
-    if endDate !='':
+    if endDate =='':
         backtest_end=price_date
 
     #calculating the average deal_time
