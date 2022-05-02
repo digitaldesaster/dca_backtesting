@@ -10,6 +10,31 @@ def readPriceData(pair):
     content = f.readlines()
     return content
 
+def calculateSafetyOrders(order_price,config):
+
+    safety_order_nr = 1
+    safety_order_volume = config.safety_order
+    safety_order_deviation=config.deviation_to_open_safety_order
+    safety_order_list = []
+
+    while safety_order_nr <=config.max_safety_orders:
+        if safety_order_nr ==1:
+            safety_order_price = round(order_price - (order_price/100*safety_order_deviation),8)
+        else:
+            safety_order_deviation = round(config.deviation_to_open_safety_order + (safety_order_deviation * config.safety_order_step_scale),4)
+            safety_order_price = round(order_price - (order_price/100*safety_order_deviation),8)
+            safety_order_volume = round(safety_order_volume * config.safety_order_volume_scale,4)
+
+        safety_order_amount = round(safety_order_volume/safety_order_price,8)
+
+        print (safety_order_nr,safety_order_price,safety_order_deviation)
+
+        safety_order_list.append({'safety_order_nr': safety_order_nr,'safety_order_price':safety_order_price,'safety_order_amount':safety_order_amount,'safety_order_deviation':safety_order_deviation,'safety_order_volume':safety_order_volume})
+
+        safety_order_nr +=1
+    return safety_order_list
+
+
 def saveResult(results,file_name):
     data_file = open('results/' + file_name, 'w', newline="")
     csv_writer = csv.writer(data_file)
@@ -84,6 +109,8 @@ def startBacktest(config,pair,startDate='',endDate=''):
                 next_so_buy_price = 0
                 sell_price = 0
 
+                deal_start_price = 0
+
                 safety_order_amount = 0
                 safety_order_deviation = 0
                 current_safety_order=0
@@ -97,13 +124,24 @@ def startBacktest(config,pair,startDate='',endDate=''):
                 buy_amount = config.base_order / float(close_price)
                 bot_avg_price = close_price
 
+                deal_start_price = close_price
+
                 bot_total_coins += buy_amount
-                next_so_buy_price = close_price - (close_price / 100 * config.deviation_to_open_safety_order)
+                next_so_buy_price = deal_start_price - (deal_start_price / 100 * config.deviation_to_open_safety_order)
+
+                #print (round(close_price,4),config.deviation_to_open_safety_order,round(next_so_buy_price,4))
+
+                total_deviation = config.deviation_to_open_safety_order
 
                 safety_order_deviation = config.deviation_to_open_safety_order * config.safety_order_step_scale
 
+
+
                 sell_price = close_price + (close_price / 100 * config.take_profit)
                 bot_total_volume = config.base_order
+
+                #print (bot_total_volume)
+
                 avaiable_capital = avaiable_capital - config.base_order
                 avaiable_capital = avaiable_capital - (config.base_order/100*trading_fee)
 
@@ -112,24 +150,38 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
                 if low_price <=next_so_buy_price:
                     if current_safety_order < config.max_safety_orders:
+
+                        buy_price = next_so_buy_price
+                        total_deviation = total_deviation + safety_order_deviation
+
                         if current_safety_order ==0:
+
+                            #print (str(current_safety_order+1) + '-safety_order')
+
                             safety_order_amount = config.safety_order
                         else:
+                            #print (str(current_safety_order+1) + '-safety_order')
                             safety_order_amount = safety_order_amount * config.safety_order_volume_scale
+
 
 
                         avaiable_capital = avaiable_capital - safety_order_amount
                         avaiable_capital = avaiable_capital - (safety_order_amount/100*trading_fee)
-                        buy_amount = safety_order_amount / float(next_so_buy_price)
+                        buy_amount = safety_order_amount / float(buy_price)
 
                         bot_total_volume = bot_total_volume + safety_order_amount
 
-
                         current_safety_order +=1
-                        bot_total_coins += buy_amount
-                        next_so_buy_price = next_so_buy_price - (next_so_buy_price / 100 * safety_order_deviation)
-                        safety_order_deviation = safety_order_deviation * config.safety_order_step_scale
 
+                        bot_total_coins += buy_amount
+
+
+                        #print (round(bot_total_volume,2),round(buy_price,4))
+
+                        if current_safety_order < config.max_safety_orders:
+                            next_so_buy_price = deal_start_price - (deal_start_price / 100 * total_deviation)
+                            #print (round(buy_price,4),round(safety_order_deviation,4) ,round(total_deviation,4), round(next_so_buy_price,4))
+                            safety_order_deviation = safety_order_deviation * config.safety_order_step_scale
 
                         bot_avg_price = bot_total_volume / bot_total_coins
                         sell_price = bot_avg_price + (bot_avg_price / 100 * config.take_profit)
@@ -146,6 +198,7 @@ def startBacktest(config,pair,startDate='',endDate=''):
                     sell_amount = bot_total_coins * sell_price
 
                     avaiable_capital = avaiable_capital + sell_amount
+                    avaiable_capital = avaiable_capital - (sell_amount/100*trading_fee)
 
                     #calculating the deal_times
                     deal_end = price_date
@@ -172,7 +225,7 @@ def startBacktest(config,pair,startDate='',endDate=''):
 
     bot_current_profit_percent = round((100/bot_total_volume*bot_capital) - 100,2)
 
-    if endDate !='':
+    if endDate =='':
         backtest_end=price_date
 
     #calculating the average deal_time
@@ -190,4 +243,4 @@ def startBacktest(config,pair,startDate='',endDate=''):
     profit = round(total_capital - start_capital,2)
     profit_percent = round(100 / start_capital * profit,2)
 
-    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end,'max_deal_time':max_deal_time,'avg_deal_time':avg_deal_time}
+    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end,'max_deal_time':max_deal_time,'avg_deal_time':avg_deal_time,'base_order':config.base_order,'safety_order':config.safety_order,'deviation_to_open_safety_order':config.deviation_to_open_safety_order,'safety_order_volume_scale':config.safety_order_volume_scale,'safety_order_step_scale':config.safety_order_step_scale}
