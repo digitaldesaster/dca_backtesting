@@ -214,6 +214,22 @@ def startBacktest(config,pair,startDate='',endDate=''):
                     reset_data = True
 
 
+
+    #current deal time
+    deal_end = endDate
+    d_start = datetime.strptime(deal_start,"%Y-%m-%d %H:%M:%S")
+    d_end = datetime.strptime(deal_end,"%Y-%m-%d %H:%M:%S")
+    duration = round((d_end - d_start).total_seconds()/3600,2)
+
+    if duration > max_deal_time:
+        max_deal_time=duration
+
+    deal_times.append(duration)
+
+    if highest_so < current_safety_order:
+        highest_so=current_safety_order
+    total_so += current_safety_order
+
     avg_so = round(total_so / total_deals,2)
 
     avaiable_capital = round(avaiable_capital,2)
