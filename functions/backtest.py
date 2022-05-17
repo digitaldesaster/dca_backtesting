@@ -187,7 +187,6 @@ def startBacktest(config,pair,startDate='',endDate=''):
                         sell_price = bot_avg_price + (bot_avg_price / 100 * config.take_profit)
 
 
-
                 #for our sell orders we are using the highest_price of this minute..
                 elif high_price >=sell_price:
 
@@ -214,16 +213,55 @@ def startBacktest(config,pair,startDate='',endDate=''):
                     reset_data = True
 
 
+
+
+    if reset_data:
+        bot_total_volume=0
+        bot_total_coins = 0
+        bot_avg_price = 0
+
+        next_so_buy_price = 0
+        sell_price = 0
+
+        deal_start_price = 0
+
+        safety_order_amount = 0
+        safety_order_deviation = 0
+        current_safety_order=0
+        reset_data=False
+        deal_start=price_date
+        deal_end=''
+
+
+    #current deal time
+    deal_end = endDate
+    d_start = datetime.strptime(deal_start,"%Y-%m-%d %H:%M:%S")
+    d_end = datetime.strptime(deal_end,"%Y-%m-%d %H:%M:%S")
+    duration = round((d_end - d_start).total_seconds()/3600,2)
+
+    if duration > max_deal_time:
+        max_deal_time=duration
+
+    deal_times.append(duration)
+
+    if highest_so < current_safety_order:
+        highest_so=current_safety_order
+    total_so += current_safety_order
+
     avg_so = round(total_so / total_deals,2)
 
     avaiable_capital = round(avaiable_capital,2)
+
     bot_total_volume = round(bot_total_volume,2)
 
     bot_capital = round(bot_total_coins*close_price,2)
 
     bot_current_profit = round(bot_capital-bot_total_volume,2)
 
-    bot_current_profit_percent = round((100/bot_total_volume*bot_capital) - 100,2)
+    if bot_current_profit !=0:
+        bot_current_profit_percent = round((100/bot_total_volume*bot_capital) - 100,2)
+    else:
+        bot_current_profit_percent = round(0,2)
 
     if endDate =='':
         backtest_end=price_date
@@ -243,4 +281,4 @@ def startBacktest(config,pair,startDate='',endDate=''):
     profit = round(total_capital - start_capital,2)
     profit_percent = round(100 / start_capital * profit,2)
 
-    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end,'max_deal_time':max_deal_time,'avg_deal_time':avg_deal_time,'base_order':config.base_order,'safety_order':config.safety_order,'deviation_to_open_safety_order':config.deviation_to_open_safety_order,'safety_order_volume_scale':config.safety_order_volume_scale,'safety_order_step_scale':config.safety_order_step_scale}
+    return {'config_name':config.config_name, 'pair':pair,'total_capital':total_capital,'profit':profit,'profit_percent':profit_percent,'bot_total_volume':bot_total_volume,'bot_current_profit':bot_current_profit,'bot_current_profit_percent':bot_current_profit_percent,'bot_avg_price':round(bot_avg_price,2),'bot_sell_price':round(sell_price,2),'avaiable_capital':avaiable_capital, 'max_amount_for_bot_usage':config.max_amount_for_bot_usage,'max_safety_order_price_deviation':config.max_safety_order_price_deviation, 'total_deals':total_deals,'highest_so':highest_so,'avg_so':avg_so,'backtest_start':backtest_start,'backtest_end':backtest_end,'max_deal_time':max_deal_time,'avg_deal_time':avg_deal_time,'base_order':config.base_order,'safety_order':config.safety_order,'deviation_to_open_safety_order':config.deviation_to_open_safety_order,'safety_order_volume_scale':config.safety_order_volume_scale,'safety_order_step_scale':config.safety_order_step_scale}

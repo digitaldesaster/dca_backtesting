@@ -12,12 +12,14 @@ from backtest import *
 #this updates all prices for all pairs as defined in the fetch_data.py
 updateAllData()
 
-#the bot_config we like to backtest
-config = getSingleConfig('euphoria')
+
 
 #to see which names are available just use..
 #for config in getAllConfigs():
 #    print (config.config_name)
+
+#the bot_config we like to backtest
+config = getSingleConfig('euphoria')
 
 #if we like to check the config we can print the json_array
 #print (config.to_json())
